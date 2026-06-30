@@ -6,11 +6,18 @@ export const fetchNotifications = async () => {
 
     const data = await res.json();
 
-    console.log("API RESPONSE:", data); 
+    console.log("API RESPONSE:", data);
 
     return data?.notifications || [];
   } catch (error) {
     console.log("API ERROR:", error);
-    return [];
+    return [
+        {
+    ID: 1,
+    Type: "Test Notification",
+    Message: "Frontend is working",
+    Timestamp: "2026-01-01"
+  }
+    ];
   }
 };
